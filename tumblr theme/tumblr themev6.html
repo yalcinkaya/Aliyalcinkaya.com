@@ -1,0 +1,921 @@
+<!--
+*Removed original GA and addded new GA with UID tracking
+*moved share buttons column to the right
+*hid follow and archive buttons
+*moved "asked me anything" to the end
+*updated background image from subtlepatterns
+*moved speechbubble
+*added linked in and g+ shares
+*resizable search
+*search is hidden
+*changed asked me anything to contact
+--v2
+*made linked in and GooglePlus optional
+*added mobile phone optimisation head tags from boiler plate
+*changed {Title} with custom text
+*added new custom subtitle text
+*css fade in animations for the hero unit / title / description
+*made share buttons fade in to avoid ugly loading look
+--v3
+*changed background colors
+*added font shadow
+*link color transitions
+*changed page headers to h1, removed perma link, and added quickfade
+*changed font size p=15px, h2=30px, h1=60px;
+*added a profile pic with border and webkit box shadow
+--v4
+*added the photo
+*changed the place of the photo and the text
+*entered about me
+-->
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head> 
+ 
+    <!--<meta name="text:Google Analytics UA Code" content="" /> -->
+    <meta name="image:Background" content="http://static.tumblr.com/vv8cdma/Ddzm1ypam/chruch.png" />
+    <meta name="text:Application Stylesheet URL" content="" />
+    <meta name="if:Show Description On Index" content="1" />
+    <!-- Mobile viewport optimization h5bp.com/ad -->
+      <meta name="HandheldFriendly" content="True">
+      <meta name="MobileOptimized" content="320">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+      <!-- Home screen icon  Mathias Bynens mathiasbynens.be/notes/touch-icons -->
+      <!-- For iPhone 4 with high-resolution Retina display: -->
+      <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/h/apple-touch-icon.png">
+      <!-- For first-generation iPad: -->
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/m/apple-touch-icon.png">
+      <!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+      <link rel="apple-touch-icon-precomposed" href="img/l/apple-touch-icon-precomposed.png">
+      <!-- For nokia devices: -->
+      <link rel="shortcut icon" href="img/l/apple-touch-icon.png">
+
+      <!-- iOS web app, delete if not needed. https://github.com/h5bp/mobile-boilerplate/issues/94 -->
+      <!-- <meta name="apple-mobile-web-app-capable" content="yes">
+      <meta name="apple-mobile-web-app-status-bar-style" content="black"> -->
+      <!-- <script>(function(){var a;if(navigator.platform==="iPad"){a=window.orientation!==90||window.orientation===-90?"img/startup-tablet-landscape.png":"img/startup-tablet-portrait.png"}else{a=window.devicePixelRatio===2?"img/startup-retina.png":"img/startup.png"}document.write('<link rel="apple-touch-startup-image" href="'+a+'"/>')})()</script> -->
+
+      <!-- The script prevents links from opening in mobile safari. https://gist.github.com/1042026 -->
+      <!-- <script>(function(a,b,c){if(c in b&&b[c]){var d,e=a.location,f=/^(a|html)$/i;a.addEventListener("click",function(a){d=a.target;while(!f.test(d.nodeName))d=d.parentNode;"href"in d&&(d.href.indexOf("http")||~d.href.indexOf(e.host))&&(a.preventDefault(),e.href=d.href)},!1)}})(document,window.navigator,"standalone")</script> -->
+
+      <!-- Mobile IE allows us to activate ClearType technology for smoothing fonts for easy reading -->
+      <meta http-equiv="cleartype" content="on">
+    <!-- Sharing Buttons -->
+    <meta name="if:Show Tweet Button" content="1"/>
+    <meta name="text:Tweet Via Account" content=""/>
+    <meta name="text:Tweet Follow Account" content=""/>
+    <meta name="if:Show Like Button" content="1"/>
+    <meta name="if:Show Linkedin Button" content="1"/>
+    <meta name="if:Show GooglePlus Button" content="1"/>
+
+
+    <!-- Comments -->
+    <meta name="text:Disqus Shortname" content=""/>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+    <meta name="description" content="{MetaDescription}" /> 
+    <link href="{Favicon}" rel="shortcut icon" />
+    <link rel="apple-touch-icon" href="{PortraitURL-128}">
+    <link rel="alternate" type="application/rss+xml" href="{RSS}"> 
+    
+    <title>{block:PostTitle}{PostTitle} - {/block:PostTitle}{Title}{block:Pagination} - {lang:Page CurrentPage of TotalPages}{/block:Pagination}</title> 
+
+    <!-- ======== STYLES ======== -->
+
+    <link href="http://static.tumblr.com/vv8cdma/Pigm0fc2m/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+      
+      /* --- high-level --- */
+      body { 
+        padding-top: 60px; /* room for fixed nav-bar */
+        background-image: url('{image:Background}');
+        font-size:15px;
+        text-shadow:0px 1px 0px #efefef;
+      } 
+      
+      .entry{
+          background:none!important;
+      }
+      
+      .navbar .brand{
+           text-shadow:0px 0px 0px;
+      }
+      
+      a {
+    -webkit-transition: color 0.2s;
+    -moz-transition: color 0.2s;
+    transition: color 0.2s;
+      }
+      
+      p{
+          font-size: 16px;
+          line-height: 24px;
+      }
+      
+    
+      /* --- tags --- */
+      .tags { margin-bottom: 10px;}
+      .tag { margin-bottom: 5px;}
+      
+      /* --- entry --- */
+      .entry { background-color: white; border-radius: 5px; padding-top: 20px; padding-bottom: 20px; position: relative; }
+      .entry > * { padding-left: 20px; padding-right: 20px; }
+      .date { margin-bottom: 10px; }
+      .entry .title { margin:34px 0px; }
+      .entry h2 { margin-top: 20px; }
+            
+       @media (max-width: 420px) { 
+           .hero-unit {
+             padding: 0px;
+             }
+        }  
+      
+      /*Top Menu */
+      .navbar .nav {
+          float:right;
+      }
+      .navbar .brand {
+      	font-weight: bold;	
+  		color:black;
+  		text-shadow: 0 1px 0 rgba(255, 255, 255, .1), 0 0 30px rgba(255, 255, 255, .125);
+  	}
+      
+      /* --- speech bubble: visually connects entries to authors ---
+      .speech-bubble {
+      background-image: url(http://static.tumblr.com/vv8cdma/4AAm155zf/speech-bubble.png);
+      width: 16px;
+      height: 16px;
+      position: absolute;
+      padding: 0;
+      right: -16px;
+      top: 16px;
+      -webkit-transform: rotate(-180deg);
+      -moz-transform: rotate(-180deg);
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);}
+     */ 
+      @media (max-width: 980px) { 
+        .speech-bubble { display: none; }
+      }  
+
+      /* --- author --- */
+      .author { margin-bottom: 10px; }
+      .author img { float: left; background-color: white; }
+      .author .author-name { line-height: 16px; padding-top: 8px; margin-left: 64px; }
+      .author .author-name .attribution { font-size: 80%; }
+      @media (max-width: 980px) { 
+        .author img { float: none; }  
+        .author .author-name { margin-left: 0; }
+      }  
+
+      /* --- notes and comments --- */
+      .notes-container, .comments-container { background-color: white; border-radius: 5px; position: relative; margin-top: 20px; }
+      .notes-container .notes, .comments-container #disqus_thread { padding: 20px; margin: 0; }
+      .notes-container ol.notes { list-style: none; }
+
+      /* --- sharing links ---*/
+      .share-links { margin-top: 70px; }
+      .google{margin-top: 3px;}
+      .linkedin{ }
+      
+      
+      /*search css*/
+
+      .navbar-search .search-query:focus {
+         width: 210px;
+         -webkit-box-shadow: 0 0 5px rgba(109, 207, 246, .5);
+         -moz-box-shadow: 0 0 5px rgba(109, 207, 246, .5);
+         box-shadow: 0 0 5px rgba(109, 207, 246, .5);
+      }
+      .navbar-search .search-query {
+          width: 55px;
+          -webkit-transition: all .5s;
+          -moz-transition: all .5s;
+          transition: all .5s;
+          }
+      /* Quick Fade */
+      @-webkit-keyframes reset {
+      	0% {
+      		opacity: 0;
+      	}
+      	100% {
+      		opacity: 0;
+      	}
+      }
+
+      @-webkit-keyframes fade-in {
+      	0% {
+      		opacity: 0;
+      	}
+      	40% {
+      		opacity: 0;
+      	}
+      	100% {
+      		opacity: 1;
+      	}
+      }
+
+      @-moz-keyframes reset {
+      	0% {
+      		opacity: 0;
+      	}
+      	100% {
+      		opacity: 0;
+      	}
+      }
+
+      @-moz-keyframes fade-in {
+      	0% {
+      		opacity: 0;
+      	}
+      	40% {
+      		opacity: 0;
+      	}
+      	100% {
+      		opacity: 1;
+      	}
+      }
+
+      @keyframes reset {
+      	0% {
+      		opacity: 0;
+      	}
+      	100% {
+      		opacity: 0;
+      	}
+      }
+
+      @keyframes fade-in {
+      	0% {
+      		opacity: 0;
+      	}
+      	40% {
+      		opacity: 0;
+      	}
+      	100% {
+      		opacity: 1;
+      	}
+      }
+      .quickFade {
+          -webkit-animation-name: reset, fade-in;
+          -webkit-animation-duration: 2.5s;
+          -webkit-animation-timing-function: ease-in;
+
+      	-moz-animation-name: reset, fade-in;
+          -moz-animation-duration: 2.5s;
+          -moz-animation-timing-function: ease-in;
+
+      	animation-name: reset, fade-in;
+          animation-duration: 2.5s;
+          animation-timing-function: ease-in;
+      }
+
+      .delayOne {
+      	-webkit-animation-delay: 0, .5s;
+      	-moz-animation-delay: 0, .5s;
+      	animation-delay: 0, .5s;
+      }
+
+      .delayTwo {
+      	-webkit-animation-delay: 0, 1.5s;
+      	-moz-animation-delay: 0, 1.5s;
+      	animation-delay: 0, 1.5s;
+      }
+
+      .delayThree {
+      	-webkit-animation-delay: 0, 2.5s;
+      	-moz-animation-delay: 0, 2.5s;
+      	animation-delay: 0, 2.5s;
+      }
+       #profilepic{
+            border: 8px solid #EFEFEF;
+            -webkit-box-shadow: 1px 2px 6px #000;
+  	      -webkit-transform: rotate(-2deg) scale(1) skew(0deg);
+  	      margin: 10px;
+          width: 90%;
+          max-width: 350px;
+        }
+    .share-links{
+        margin-top: 125px;
+        opacity: 0.4;
+        -webkit-transition: all 1s;
+      	-moz-transition: all 1s;
+      	transition: all 1s;
+    }
+    .share-links:hover{
+        opacity:1;
+    }
+    
+    .row {
+    margin-top: 50px;
+    }
+    h1.home{
+    text-align: center;
+    font-size: 60px;
+    margin-bottom: 40px;
+    text-shadow: 1px 1px 1px #FEFEFE;
+}
+    </style>
+
+
+    <link href="http://static.tumblr.com/vv8cdma/pVJm0fbxk/bootstrap-responsive.min.css" rel="stylesheet">
+
+    {block:IfApplicationStylesheetURL}
+    <!-- Import application styling -->
+    <link href="{text:Application Stylesheet URL}" rel="stylesheet">
+    {/block:IfApplicationStylesheetURL}
+    
+    <style type="text/css">
+      <!--
+        {CustomCSS}
+      -->
+    </style> 
+
+
+<!--GA Start -->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-25900191-1']);
+  function _uGC(l,n,s) {
+     if (!l || l=="" || !n || n=="" || !s || s=="") return "-";
+     var i,i2,i3,c="-";
+     i=l.indexOf(n);
+     i3=n.indexOf("=")+1;
+     if (i > -1) {
+      i2=l.indexOf(s,i); if (i2 < 0) { i2=l.length; }
+      c=l.substring((i+i3),i2);
+     }
+     return c;
+    }
+    var a = _uGC(document.cookie, '__utma=', ';');
+    var id = a.split(".");
+    _gaq.push(['summary._setCustomVar',5,'Visitor ID',id[1],1]);
+    _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+<script type=”text/javascript” src=”http://apis.google.com/js/plusone.js”></script>
+</head> 
+  <body>
+
+    {block:IfShowLikeButton}
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=325405900855984";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+    {/block:IfShowLikeButton}
+
+    <header>
+      <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+          <div class="container">
+
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </a>
+
+            <a class="brand" href="/">
+              {Title}
+            </a>
+
+            <div class="nav-collapse">
+              <ul class="nav">
+                <!--{block:English}
+                  <li>
+                    <a href="http://tumblr.com/follow/{Name}">
+                      Follow
+                    </a>
+                  </li>
+                {/block:English}
+
+                {block:NotEnglish}
+                <li>
+                  <a href="http://tumblr.com/follow/{Name}">{lang:Follow me}</a>
+                </li>
+                {/block:NotEnglish}
+
+                <li class="divider-vertical"></li>
+                
+                <li>
+                  <a href="/archive">{lang:Archive}</a>
+                </li> -->
+                
+
+                {block:SubmissionsEnabled}
+                <li class="divider-vertical"></li>
+              
+                <li>
+                  <a href="/submit">Submit Something</a>
+                </li>
+                {/block:SubmissionsEnabled} 
+
+                {block:Pages}
+                <li class="divider-vertical"></li>
+                
+                <li>
+                  <a href="{URL}">{Label}</a>
+                </li>
+                {/block:Pages}
+                
+                
+                {block:AskEnabled}
+                <li class="divider-vertical"></li>
+                
+                <li>
+                  <a href="/ask">Contact</a>
+                </li>
+                {/block:AskEnabled}
+              </ul>
+    
+              <!--search hidden for now
+                  <form class="navbar-search pull-right" action="/search" method="get">
+                <input type="text" class="search-query" placeholder="{lang:Search}..." id="search" name="q" value="" />
+              </form>
+              -->
+            </div> <!-- nav-collapse -->
+
+          </div> <!-- container -->
+        </div> <!-- navbar-inner -->
+      </div> <!-- navbar navbar-fixed-top -->
+    </header>
+
+    <div class="container">
+      {block:IndexPage}
+      {block:IfShowDescriptionOnIndex}
+     
+    
+          <div class="row">
+ 
+<h1 class="home">Hello Stranger!</h1>
+<div class="span4">
+   <img id="profilepic" class="quickFade" src="http://25.media.tumblr.com/tumblr_m7i3z8iCCb1qhevbco1_400.png">
+   </div>
+
+   <div class="span6">
+       <p class="quickFade delayOne">I am a marketing technology generalist, and a user experience thinker, based in Sydney, Australia. Currently I am working as a marketing strategist for <a class="external" href="http://www.ashopcommerce.com" target="_blank">Ashop Commerce</a> and consulting ecommerce websites on how to increase their conversions. If you have any questions or just want to reach out, feel free to <a href="http://www.aliyalcinkaya.com/ask">get in touch with me.</a>
+   </p>
+   
+       <div class="quickFade delayTwo" >
+           <h2>Are We Connected Yet?</h2>
+           Become My Friend on <a href="https://www.facebook.com/yalcin.timeline"  class="external" target="_blank">Facebook</a><br/> 
+           
+           Connect With Me on <a href="http://au.linkedin.com/in/aliyalcinkaya" class="external" target="_blank" >LinkedIn</a><br/> 
+           
+           Follow Me on <a href="http://www.quora.com/Yalcin-Kaya" class="external" target="_blank">Quora</a> / <a href="http://twitter.com/aliyalcinkaya" class="external" target="_blank" >Twitter</a> / <a href="https://plus.google.com/u/0/106883358201635678211/about/p/pub" class="external" target="_blank">Google +</a><br/> 
+           See My Blog <a href="http://mindlabs.tumblr.com" class="external" target="_blank">Mindlabs</a> <br/> 
+           
+           <h2>Code</h2>
+           See What I Follow on <a href="http://github.com/yalcinkaya" class="external" target="_blank" >Github</a><br/> 
+           See What I Play With on <a href="http://jsfiddle.net/user/aliyalcinkaya/" class="external" target="_blank" >JsFiddle</a>
+           
+           <h2>Music</h2>
+           Listen Me Play Guitar on <a href="http://soundcloud.com/aliyalcinkaya" class="external" target="_blank" >SoundCloud</a><br/> 
+           Hear What I Listen on <a href="http://open.spotify.com/user/1231687249/playlist/25nndQ1AEjB4OlSczQl23w" class="external" target="_blank">Spotify </a>
+           
+           <h2>Work With Me</h2>
+           Hire Me For Your Project on <a href="https://www.odesk.com/users/~~0308f48b3978583d" class="external" target="_blank" >oDesk</a><br/>
+           Have a Good Cause? Let <a href="http://www.webanalyticsdemystified.com/ae/members/profile.asp?m={19522B8D-878F-4113-8F94-08D5E1E7194E}" class="external" target="_blank">Me</a> help you on <a href="http://www.webanalyticsdemystified.com/ae/ae-business.asp" class="external" target="_blank">Analysis Exchange</a>
+       </div>
+   </div>
+</div>
+		
+          </div>
+          
+      {/block:IfShowDescriptionOnIndex}
+      {/block:IndexPage}
+
+      <div class="posts">
+
+        {block:SearchPage}
+        <li class="POST ALT TEXT MINI">
+          <div class="ENTRY">
+            <div class="TITLE CENTER">
+              {lang:Your search for SearchQuery returned SearchResultCount results 2} 
+            </div>
+            {block:NoSearchResults}
+            <div class="TITLE">
+              {lang:No search results for SearchQuery 2}
+            </div>
+            {/block:NoSearchResults}            
+          </div>
+        </li>
+        {/block:SearchPage}
+
+        {block:DayPage}
+        <li class="POST ALT TEXT MINI">
+          <div class="ENTRY">
+            <div class="TITLE CENTER">
+              {lang:Viewing everything posted on Month DayOfMonth Year}
+            </div>            
+          </div>
+        </li>       
+        {/block:DayPage}
+              
+        {block:Posts}
+        <div class="row post {block:Text}text{/block:Text}{block:Photo}photo{/block:Photo}{block:Quote}quote{/block:Quote}{block:Video}video{/block:Video}{block:Link}link{/block:Link}{block:Chat}chat{/block:Chat}{block:Audio}audio{/block:Audio}{block:Answer}answer{/block:Answer}">  
+
+         
+
+          <div class="span11 entry">
+
+            {block:GroupMembers} 
+            <div class="speech-bubble"></div>
+            {/block:GroupMembers} 
+          
+            <div class="title quickFade">
+              {block:Title}
+              <h1>
+                  {Title}
+              </h1>
+              {/block:Title}
+                                        
+            </div> <!-- .title -->
+            
+            <div class="POST">
+
+              <!-- ANSWER -->
+              
+              {block:Answer}
+                
+                <div class="QUOTEINFO">
+                  
+                  <div class="QUOTEMARK"></div>
+                  <div class="TEXT">
+                    {Question}
+                  </div>
+                
+                </div>
+                
+                <p>{lang:Asked by Asker}</p>
+                
+                <div class="BREAK"></div>
+                
+                <div class="RESPONSE">
+                
+                  {Answer}
+                
+                </div>
+
+              {/block:Answer}
+              
+              <!-- /ANSWER -->
+              
+              <!-- TEXT -->
+              
+              {block:Text}
+                
+                {Body}
+                
+              {/block:Text}
+              
+              <!-- /TEXT -->
+              
+              <!-- VIDEO -->
+              
+              {block:Video}
+                
+                {Video-500}
+                
+                {block:Caption}
+                  {Caption}
+                {/block:Caption}
+                
+              {/block:Video}
+              
+              <!-- /VIDEO -->
+              
+              <!-- PHOTO -->
+              
+              {block:Photo}
+              
+                <div class="CENTER">
+              
+                  {LinkOpenTag}<img alt="{PhotoAlt}" src="{PhotoURL-500}" />{LinkCloseTag}
+
+                </div>
+
+                {block:Caption}
+                  <div class="CAPTION">
+                    {Caption}
+                  </div>
+                {/block:Caption}
+                
+              {/block:Photo}
+              
+              <!-- /PHOTO -->
+              
+              <!-- QUOTE -->
+              
+              {block:Quote}
+              
+                <div class="QUOTEINFO">
+                  
+                  <div class="QUOTEMARK"></div>
+                  <div class="TEXT">
+                    {Quote}
+                  </div>
+                
+                </div>
+                
+                <div class="BREAK"></div>
+                
+                {block:Source}
+                <div class="BY">
+                
+                  {Source}
+                
+                </div>
+                {/block:Source}
+                
+              {/block:Quote}
+              
+              <!-- /QUOTE -->
+
+              <!-- LINK -->
+              
+              {block:Link}
+                
+                <div class="THE-LINK">
+                
+                  <a href="{URL}" target="{Target}">{Name}</a>
+                    
+                </div>
+                
+                <div class="INFO">
+                  <a href="{URL}" target="{Target}">
+                    {URL}
+                  </a>
+                </div>
+                
+                {block:Description}         
+                <div class="MARGIN">{Description}</div>
+                {/block:Description}
+                
+              {/block:Link}
+              
+              <!-- /LINK -->
+
+              <!-- CHAT -->
+              
+              {block:Chat}
+                
+                <ul class="CHAT">
+                
+                  {block:Lines}
+                  <li class="{Alt} {UserNumber}">{block:Label}<strong>{Label}</strong> {/block:Label}{Line}</li>
+                  {/block:Lines}
+                  
+                </ul>
+                
+              {/block:Chat}
+              
+              <!-- /CHAT -->
+
+              <!-- AUDIO -->
+              
+              {block:Audio}
+                
+                <div class="PLAYER">
+                
+                  <div class="ALBUMART">
+                    
+                    {block:AlbumArt}<img  alt="" src="{AlbumArtURL}" />{/block:AlbumArt}
+                    
+                  </div>
+                  
+                  <div class="OVERLAY">
+                    
+                    <div class="OBJ">
+                      {AudioPlayerGrey}
+                    </div>
+                  
+                    <div class="COUNT">
+                      This track has had {PlayCountWithLabel}
+                    </div>
+                    
+                    <div class="TRACK">
+                      {block:TrackName}
+                        <strong>{TrackName}</strong>
+                      {/block:TrackName}
+                      
+                      {block:TrackName}
+                        {block:Artist}
+                          by
+                        {/block:Artist}
+                      {/block:TrackName}
+                      
+                      {block:Artist}
+                      <a href="http://last.fm/{Artist}">{Artist}</a>
+                      {/block:Artist}
+                    </div>
+                    
+                  </div>
+                
+                </div>
+                
+                {block:Caption}
+                  {Caption}
+                {/block:Caption}
+                
+              {/block:Audio}
+              
+              <!-- /AUDIO -->   
+              
+            </div>
+                    
+          </div> <!-- .entry -->
+          <div class="span1">
+                 {block:GroupMembers} 
+                 <div class="author">
+                   <a href="{PostAuthorURL}">
+                     <img src="{PostAuthorPortraitURL-48}" class="thumbnail">
+                   </a>
+                   <div class="author-name"><span class="attribution">Posted by</span><br/><a href="{PostAuthorURL}" target="_blank">{PostAuthorTitle}</a></div>
+                   <div style="clear: both"></div>
+                 </div>
+                 {/block:GroupMembers} 
+
+                 <div class="date">
+                   {block:Date}
+                   {block:NotReblog}
+                     <a href="{Permalink}">{lang:Posted TimeAgo}</a>
+                   {/block:NotReblog}
+                   {block:Reblog}
+                     {lang:PostTypeNoun reblogged from ReblogParentTitle 2}
+                   {/block:Reblog}
+                   {/block:Date}
+
+                   {block:HasTags}
+                   with tags:
+                   {/block:HasTags}
+                 </div> <!-- .date -->
+
+                 {block:HasTags}
+                 <div class="tags">
+                   {block:Tags}
+                   <a class="tag btn btn-mini" href="{TagURL}">{Tag}</a>
+                   {/block:Tags}
+                 </div> <!-- .tags -->
+                 {/block:HasTags}
+
+                 {block:NoteCount} 
+                 <div class="notes">
+                   <a href="{Permalink}#notes">
+                     <i class="icon-heart"></i> {NoteCountWithLabel}
+                   </a>
+                 </div>
+                 {/block:NoteCount} 
+
+                 {block:IfDisqusShortname}
+                 <a class="dsq-comment-count" href="{Permalink}#disqus_thread">{lang:Comments}</a>
+                 {/block:IfDisqusShortname}
+
+                 <div class="share-links quickFade delayThree">
+                   {block:IfShowTweetButton}
+                   <div class="tweet share-link">
+                     <a href="https://twitter.com/share" 
+                       class="twitter-share-button" 
+                       data-url="{PlaintextPermalink}" 
+                       data-text="{PlaintextTitle}" 
+                       {block:IfTweetViaAccount}
+                       data-via="{PlaintextTweetViaAccount}" 
+                       {/block:IfTweetViaAccount}
+                       {block:IfTweetFollowAccount}
+                       data-related="{PlaintextTweetFollowAccount}" 
+                       {/block:IfTweetFollowAccount}
+                       >Tweet</a>
+                   </div>
+                   {/block:IfShowTweetButton}
+
+                   {block:IfShowLikeButton}
+                   <div class="like share-link">
+                     <div class="fb-like" data-href="{PlaintextPermalink}" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false" data-font="lucida grande"></div>
+                   </div>
+                   {/block:IfShowLikeButton}
+                   
+                   
+                   {block:IfShowGooglePlusButton}
+                   <div class="google share-link">
+                   <g:plusone size="medium"></g:plusone>
+                   </div>
+                   {/block:IfShowGooglePlusButton}
+                   
+                   {block:IfShowLinkedinButton}
+                   <div class="linkedin share-link">
+                   <script src="//platform.linkedin.com/in.js" type="text/javascript"></script>
+				<script type="IN/Share" data-counter="right"></script>
+                   </div>
+                   {/block:IfShowLinkedinButton}
+                 <!-- .share-links -->
+
+               </div> <!-- .span2 -->     
+        </div> <!-- .row .post -->
+
+        {block:PermalinkPage} 
+        {block:IfDisqusShortname}
+        <div class="row">
+          <div class="span10 offset2 comments-container">
+            <div id="disqus_thread"></div>
+            <script type="text/javascript" src="http://{text:Disqus Shortname}.disqus.com/embed.js"></script>
+            <noscript><a href="http://{text:Disqus Shortname}.disqus.com/?url=ref">{lang:View the discussion thread}</a></noscript>
+          </div> <!-- .comments-container -->
+        </div>
+        {/block:IfDisqusShortname}
+        {/block:PermalinkPage} 
+
+        {block:NoteCount}
+        <div class="row">
+          <div class="span10 offset2 notes-container" id="notes">
+            {PostNotes}
+          </div> <!-- .notes-container -->
+        </div>
+        {/block:NoteCount}
+
+        <hr/>
+
+        {/block:Posts}
+                                            
+      </div> <!-- .posts -->
+      
+      {block:Pagination}
+      <ul class="pager">
+        {block:PreviousPage}
+        <li><a href="{PreviousPage}">{lang:Previous page}</a></li>
+        {/block:PreviousPage}
+
+        {block:NextPage}
+        <li><a href="{NextPage}">{lang:Next page}</a></li>
+        {/block:NextPage}
+      </ul>
+      {/block:Pagination}
+
+      <!-- Revise Footer<footer class="footer">
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p><a href="https://github.com/mikejarema/bootstrap-tumblr-theme/">Bootstrap Tumblr Theme</a> by <a href="http://mikejarema.com">Mike Jarema</a>.</p>
+        <p>{lang:Powered by Tumblr 2}.</p>
+        <p>Icons from <a href="http://glyphicons.com">Glyphicons Free</a>, licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
+      </footer> -->
+      
+    </div>
+
+    <!-- ======== SCRIPTS ======== -->
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://static.tumblr.com/vv8cdma/obbm0fc3v/bootstrap.min.js"></script>    
+    
+    <!--Tracking External Links-->
+        <script type="text/javascript">
+        $(document).ready(function(){
+        $('a.external').click(function(){
+        _gaq.push(['_trackEvent', 'External Links', 'Click', $(this).attr('href')]);
+        });
+        });
+        </script>
+    
+    {block:IfShowGooglePlusButton}
+    <script type="text/javascript">
+      (function() {
+        var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+        po.src = 'https://apis.google.com/js/plusone.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+      })();
+    </script>
+    {/block:IfShowGooglePlusButton}
+    
+    {block:IfShowTweetButton}
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+    {/block:IfShowTweetButton}
+
+    {block:IfDisqusShortname}
+    <script type="text/javascript">
+    //<![CDATA[
+    (function() {
+      var links = document.getElementsByTagName('a');
+      var query = '?';
+      for(var i = 0; i < links.length; i++) {
+        if(links[i].href.indexOf('#disqus_thread') >= 0) {
+          query += 'url' + i + '=' + encodeURIComponent(links[i].href) + '&';
+        }
+      }
+      document.write('<script charset="utf-8" type="text/javascript" src="http://disqus.com/forums/{text:Disqus Shortname}/get_num_replies.js' + query + '"></' + 'script>');
+    })();
+    //]]>
+    </script>
+    {/block:IfDisqusShortname}
+
+  </body> 
+</html>
