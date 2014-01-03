@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+  <html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Ali Yalcin Kaya</title>
+        <meta name="description" content="ali yalcin kaya's personal website">
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+
+    <body>
+      <div class="container">
+        <div class="row">
+          <div class="span12">
+          <h1 id="fittext">ali yalcin kaya</h1>
+
+          </div>
+        </div>
+
+      
+        <div class="row">
+          <div class="span7">
+                <p>Web Analytics and Conversion Optimisation Professional<br>
+                  <strong>
+                <a href="http://au.linkedin.com/in/aliyalcinkaya" onclick="_gaq.push(['_trackEvent', 'External Links', 'Visit', 'LinkedIn']);" target="_blank">LinkedIn</a>, 
+                <a href="http://github.com/yalcinkaya" onclick="_gaq.push(['_trackEvent', 'External Links', 'Visit', 'Github']);" target="_blank">Github</a>,
+                <a href="mailto:kayayalcin@gmail.com" onclick="_gaq.push(['_trackEvent', 'Mail Client', 'Contact', 'Mail']);">
+                Contact</a>
+                </strong>
+              </p>
+              <br>
+          <p><a href="#downloadcv" role="button" data-toggle="modal" class="button" onclick="_gaq.push(['_trackEvent', 'Downloads', 'Click', 'CV']);" target="_blank"><i class="icon-download-alt"></i> Download Resume</a></p>
+          </div>
+
+          <div class="span5">
+          <div>
+              <a class="twitter-timeline" href="https://twitter.com/AliYalcinKaya" data-widget-id="341199506710343680">Tweets by @AliYalcinKaya</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+          </div>
+          </div>
+      </div>
+
+
+ 
+<!-- Modal -->
+<div id="downloadcv" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×&nbsp</button>
+  <div class="modal-body">
+    <br>
+    <p style="color:#333333">Please enter your email to download the CV</p>
+        <!-- Begin MailChimp Signup Form -->
+        <form action="http://aliyalcinkaya.us7.list-manage.com/subscribe/post?u=ea7594e95ddab659a84df236c&amp;id=cfe41b2b7a" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+          <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+          <br>
+          <input type="submit" value="Download" name="subscribe" id="mc-embedded-subscribe" class="btn btn-primary">
+        </form>
+<!--End mc_embed_signup-->
+    
+    </div></div>
+
+
+          <div class="clearfix"></div>
+
+            <footer>
+                <p>&copy; 2013</p>
+            </footer>
+        </div> <!-- /container -->
+
+        <script>
+    /*! 
+* FitText.js 1.0 jQuery free version
+*/
+(function(){
+  var css = function (el, prop) {
+    return window.getComputedStyle ? getComputedStyle(el).getPropertyValue(prop) : el.currentStyle[prop];
+  };
+  var addEvent = function (el, type, fn) {
+    if (el.addEventListener)
+      el.addEventListener(type, fn, false);
+    else
+      el.attachEvent('on'+type, fn);
+  };
+  window.fitText = function (el, kompressor) {
+    var settings = {
+      'minFontSize' : -1/0,
+      'maxFontSize' : 1/0
+    };
+    var fit = function (el) {
+      var compressor = kompressor || 1;
+      var resizer = function () {
+        el.style.fontSize = Math.max(Math.min(el.clientWidth / (compressor*10), parseFloat(settings.maxFontSize)), parseFloat(settings.minFontSize)) + 'px';
+      };
+      addEvent(window, 'resize', resizer);
+    };
+    if (el.length)
+      for(var i=0; i<el.length; i++)
+        fit(el[i]);
+    else
+      fit(el);
+    return el;
+  };
+})();
+
+      fitText(document.getElementById('fittext'), 0.9)
+</script>
+
+
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <!--GA Start -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-25900191-1']);
+  function _uGC(l,n,s) {
+     if (!l || l=="" || !n || n=="" || !s || s=="") return "-";
+     var i,i2,i3,c="-";
+     i=l.indexOf(n);
+     i3=n.indexOf("=")+1;
+     if (i > -1) {
+      i2=l.indexOf(s,i); if (i2 < 0) { i2=l.length; }
+      c=l.substring((i+i3),i2);
+     }
+     return c;
+    }
+    var a = _uGC(document.cookie, '__utma=', ';');
+    var id = a.split(".");
+    _gaq.push(['summary._setCustomVar',5,'Visitor ID',id[1],1]);
+    _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+        
+    </body>
+</html>

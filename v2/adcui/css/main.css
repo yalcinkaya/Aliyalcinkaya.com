@@ -1,0 +1,50 @@
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+
+.hero-unit{
+	background: #fff url(../img/herobackground.jpg) no-repeat 100% 20% scroll ;
+	text-shadow: 1px 1px white;
+	min-height: 400px
+}
+
+
+@charset "UTF-8";
+
+@font-face {
+  font-family: 'humanist521';
+  src: url("../Fonts/humanist_521_bt-webfont.eot");
+  src: url("../Fonts/humanist_521_bt-webfont.eot?#iefix") format('embedded-opentype'), url("../Fonts/humanist_521_bt-webfont.woff") format('woff'), url("../Fonts/humanist_521_bt-webfont.ttf") format('truetype'), url("../Fonts/humanist_521_bt-webfont.svg") format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'humanist521light';
+  src: url("../Fonts/humanist_521_light_bt-webfont.eot");
+  src: url("../Fonts/humanist_521_light_bt-webfont.eot?#iefix") format('embedded-opentype'), url("../Fonts/humanist_521_light_bt-webfont.woff") format('woff'), url("../Fonts/humanist_521_light_bt-webfont.ttf") format('truetype'), url("../Fonts/humanist_521_light_bt-webfont.svg") format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+h1,h2,h3,h4, p{
+	font-family: OpenSansRegular, Helvetica, Arial, sans-serif;
+	color:;
+}
+
+p{
+	font-size: 16px;
+}
+
+.navbar-inner{
+background-image: -webkit-linear-gradient(top, 
+rgba(95,201,223,1), 
+rgba(0,94,159, 1));
+}
+
+
+

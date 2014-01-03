@@ -1,0 +1,56 @@
+@charset "UTF-8";
+
+ @font-face {
+  font-family: 'fontello';
+  src: url('../font/fontello.eot?49640344');
+  src: url('../font/fontello.eot?49640344#iefix') format('embedded-opentype'),
+       url('../font/fontello.woff?49640344') format('woff'),
+       url('../font/fontello.ttf?49640344') format('truetype'),
+       url('../font/fontello.svg?49640344#fontello') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'fontello';
+    src: url('../font/fontello.svg?49640344#fontello') format('svg');
+  }
+}
+*/
+ 
+ [class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+ 
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+ 
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+     
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+  font-size: 0.8em;
+}
+ 
+.icon-spotify:before { content: '\3d'; } /* '=' */
+.icon-linkedin:before { content: '\4c'; } /* 'L' */
+.icon-rss:before { content: '\52'; } /* 'R' */
+.icon-twitter:before { content: '\54'; } /* 'T' */
+.icon-email:before { content: '\5d'; } /* ']' */
+.icon-facebook:before { content: '\66'; } /* 'f' */
+.icon-quora:before { content: '\71'; } /* 'q' */
+.icon-soundcloud:before { content: '\73'; } /* 's' */
+.icon-download-alt:before { content: '\e0c3'; } /* '' */
+.icon-github-circled-alt2:before { content: '\f056'; } /* '' */
+.icon-search:before { content: '🔎'; } /* '\1f50e' */
